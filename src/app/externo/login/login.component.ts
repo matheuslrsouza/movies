@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from '../../model/usuario.model';
-import { UsuarioService } from '../../service/usuario-service.service';
+import { UsuarioService } from '../../service/usuario.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
     let usuario = new Usuario();
 
     this.formLogin = this.formBuilder.group({
-      id: [usuario.id, []],
       usuario: [usuario.usuario, [
         Validators.required,
         Validators.maxLength(50),
