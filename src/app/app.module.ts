@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MovieComponent } from './movie/movie.component';
+import { ExternoModule } from './externo/externo.module';
+import { InternoModule } from './interno/interno.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MovieComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ExternoModule,
+    InternoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

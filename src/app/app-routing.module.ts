@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { MovieComponent } from './movie/movie.component';
+import { routes_externo } from './externo/externo-routing';
+import { routes_interno } from './interno/interno-routing';
+import { ExternoComponent } from './externo/externo.component';
+import { InternoComponent } from './interno/interno.component';
 
 const routes: Routes = [
-  {path: '', component: MovieComponent}
+  { path: 'externo', component: ExternoComponent, children: routes_externo },
+  { path: 'interno', component: InternoComponent, children: routes_interno }
 ];
 
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes)
-  ], 
+  ],
   exports: [
     RouterModule
   ]

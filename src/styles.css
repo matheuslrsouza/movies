@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+.invalid-feedback p {
+    margin-bottom: -2px !important;
+}
+  
+.invalid-feedback p:before {
+    content: "• "
+}
+
+.click {
+    cursor: pointer;
+}
