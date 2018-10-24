@@ -11,19 +11,21 @@ import { Filme } from '../../model/filme.model';
 export class FilmeListagemComponent implements OnInit {
 
   public filmes: Array<Filme>;
-  private titulo: string;
+  private titulo: string = '';
 
   constructor(private emitter: EventEmitterService,
     private filmeService: FilmeService) { }
 
   ngOnInit() {
     this.filmes = new Array<Filme>();
-    this.emitter.get('evento.atualizarLista').subscribe(titulo => this.onAtualizarLista(titulo));
+    this.emitter.get('evento.atualizarLista').subscribe(titulo => {
+      this.titulo = titulo;
+      this.onAtualizarLista();
+    });
   }
 
-  private onAtualizarLista(titulo: string): void {
-    this.titulo = titulo;
-    this.filmeService.getFilmesLocal(titulo).subscribe(filmes => {
+  private onAtualizarLista(): void {
+    this.filmeService.getFilmesLocal(this.titulo).subscribe(filmes => {
       this.filmes = filmes;
     });
   }

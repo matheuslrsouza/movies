@@ -3,15 +3,19 @@
   <div class="col-md-3">
 
     <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="{{ filme.Poster }}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{ filme.Title }}</h5>
-      </div>
+      <img class="card-img-top" src="{{ filme.Poster }}" width="300px" height="447px" alt="Card image cap">
     </div>
 
   </div>
+
   <div class="col-md-9">
-    <p>{{filme.Title}}</p>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">{{ filme.Title }}</h1>
+        <p class="text-justify">{{ filme.Detail.Plot }}</p>
+        <hr class="my-4">
+      </div>
+    </div>
   </div>
 
 </div>

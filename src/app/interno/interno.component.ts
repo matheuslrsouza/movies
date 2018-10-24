@@ -11,7 +11,7 @@ import { EventEmitterService } from '../service/emitter.service';
 export class InternoComponent implements OnInit {
 
   public token: Token;
-  public titulo: string;
+  public titulo: string = '';
 
   constructor(private router: Router, private emitter: EventEmitterService) { }
 
@@ -26,9 +26,7 @@ export class InternoComponent implements OnInit {
   }
 
   pesquisar(): void {
-    console.log('emitindo evento');
-    this.emitter.get('evento.atualizarLista')
-      .emit(this.titulo);
+      this.emitter.get('evento.atualizarLista').emit(this.titulo);
   }
 
 }
