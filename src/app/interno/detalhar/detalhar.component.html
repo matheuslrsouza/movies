@@ -2,19 +2,112 @@
 
   <div class="col-md-3">
 
-    <div class="card" style="width: 18rem;">
+    <div class="card">
       <img class="card-img-top" src="{{ filme.Poster }}" width="300px" height="447px" alt="Card image cap">
     </div>
 
   </div>
 
   <div class="col-md-9">
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">{{ filme.Title }}</h1>
-        <p class="text-justify">{{ filme.Detail.Plot }}</p>
-        <hr class="my-4">
+    <div class="container">
+      <h1 class="display-4">{{ filme.Title }}</h1>
+      <p class="text-justify">{{ filme.Detail.Plot }}</p>
+      <hr class="my-4">
+
+      <div class="row">
+        <div class="col-md-2 text-right float-left">
+          <span class="lead font-weight-bold">Gênero</span>
+        </div>
+        <div class="col-md-10 float-left">
+          <span class="lead">{{filme.Detail.Genre}}</span>
+        </div>
       </div>
+      
+      <div class="row">
+        <div class="col-md-2 text-right float-left">
+          <span class="lead font-weight-bold">Duração</span>
+        </div>
+        <div class="col-md-10 float-left">
+          <span class="lead">{{filme.Detail.Runtime}}</span>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-2 text-right float-left">
+          <span class="lead font-weight-bold">Lançamento</span>
+        </div>
+        <div class="col-md-10 float-left">
+          <span class="lead">{{filme.Detail.Year}}</span>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-2 text-right float-left">
+          <span class="lead font-weight-bold">Idioma</span>
+        </div>
+        <div class="col-md-10 float-left">
+          <span class="lead">{{filme.Detail.Language}}</span>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-2 text-right float-left">
+          <span class="lead font-weight-bold">País</span>
+        </div>
+        <div class="col-md-10 float-left">
+          <span class="lead">{{filme.Detail.Country}}</span>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-2 text-right float-left">
+          <span class="lead font-weight-bold">Atores</span>
+        </div>
+        <div class="col-md-10 float-left">
+          <span class="lead">{{filme.Detail.Actors}}</span>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-2 text-right float-left">
+          <span class="lead font-weight-bold">Diretor</span>
+        </div>
+        <div class="col-md-10 float-left">
+          <span class="lead">{{filme.Detail.Director}}</span>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-2 text-right float-left">
+          <span class="lead font-weight-bold">Produtora</span>
+        </div>
+        <div class="col-md-10 float-left">
+          <span class="lead">{{filme.Detail.Production}}</span>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-2 text-right float-left">
+          <span class="lead font-weight-bold">Site</span>
+        </div>
+        <div class="col-md-10 float-left">
+          <a href="javascript:void(0)" class="lead" (click)="abrirUrl(filme.Detail.Website)">
+            {{filme.Detail.Website}}
+          </a>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-2 text-right float-left">
+          <span class="lead font-weight-bold">IMDB</span>
+        </div>
+        <div class="col-md-10 float-left">
+          <a href="javascript:void(0)" class="lead" (click)="abrirUrl('https://www.imdb.com/title/' + filme.imdbID)">
+            {{ 'https://www.imdb.com/title/' + filme.imdbID }}
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 

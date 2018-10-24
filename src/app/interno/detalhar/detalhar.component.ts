@@ -30,4 +30,8 @@ export class DetalharComponent implements OnInit {
     });
   }
 
+  public abrirUrl(url: string): void {
+    window.open(url, '_open');
+  }
+
 }
