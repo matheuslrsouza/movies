@@ -2,11 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { FilmeListagemComponent } from './interno/filme-listagem/filme-listagem.component';
+
+import { InterceptadorDeRequisicoes } from './service/http.interceptor';
+
 import { AppRoutingModule } from './app-routing.module';
 import { ExternoModule } from './externo/externo.module';
 import { InternoModule } from './interno/interno.module';
-import { HttpClientModule } from '@angular/common/http';
-import { FilmeListagemComponent } from './interno/filme-listagem/filme-listagem.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,11 @@ import { FilmeListagemComponent } from './interno/filme-listagem/filme-listagem.
     ExternoModule,
     InternoModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptadorDeRequisicoes,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
