@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Token } from '../model/token.model';
 import { Router } from '@angular/router';
+import { EventEmitterService } from '../service/emitter.service';
 
 @Component({
   selector: 'app-interno',
@@ -10,17 +11,24 @@ import { Router } from '@angular/router';
 export class InternoComponent implements OnInit {
 
   public token: Token;
+  public titulo: string;
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private emitter: EventEmitterService) { }
 
   ngOnInit() {
     this.token = JSON.parse(localStorage.getItem('token'));
   }
 
-  public sair(): void {
+  sair(): void {
     if (confirm('Deseja sair?')) {
       this.router.navigate(['/externo/login']);
     }
+  }
+
+  pesquisar(): void {
+    console.log('emitindo evento');
+    this.emitter.get('evento.atualizarLista')
+                .emit(this.titulo);
   }
 
 }

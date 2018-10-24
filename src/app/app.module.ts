@@ -6,10 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { ExternoModule } from './externo/externo.module';
 import { InternoModule } from './interno/interno.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FilmeListagemComponent } from './interno/filme-listagem/filme-listagem.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilmeListagemComponent
   ],
   imports: [
     BrowserModule,
