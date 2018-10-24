@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EventEmitterService } from 'src/app/service/emitter.service';
+import { FilmeService } from 'src/app/service/filme.service';
+import { Filme } from '../../model/filme.model';
 
 @Component({
   selector: 'app-filme-listagem',
@@ -8,16 +10,28 @@ import { EventEmitterService } from 'src/app/service/emitter.service';
 })
 export class FilmeListagemComponent implements OnInit {
 
-  constructor(private emitter: EventEmitterService) { }
+  public filmes: Array<Filme>;
+  private titulo: string;
+
+  constructor(private emitter: EventEmitterService,
+    private filmeService: FilmeService) { }
 
   ngOnInit() {
-    this.emitter.get('evento.atualizarLista')
-                .subscribe(titulo => this.onAtualizarLista(titulo));
+    this.filmes = new Array<Filme>();
+    this.emitter.get('evento.atualizarLista').subscribe(titulo => this.onAtualizarLista(titulo));
   }
 
-  onAtualizarLista(titulo: string): void {
-    console.log('recebendo evento');
-    console.log(titulo);
+  private onAtualizarLista(titulo: string): void {
+    this.titulo = titulo;
+    this.filmeService.getFilmesLocal(titulo).subscribe(filmes => {
+      this.filmes = filmes;
+    });
+  }
+
+  public getFilmesDaNuvem(): void {
+    this.filmeService.getFilmesNaNuvem(this.titulo).subscribe(filmes => {
+      this.filmes = filmes;
+    });
   }
 
 }

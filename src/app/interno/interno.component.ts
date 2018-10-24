@@ -12,7 +12,7 @@ export class InternoComponent implements OnInit {
 
   public token: Token;
   public titulo: string;
-  
+
   constructor(private router: Router, private emitter: EventEmitterService) { }
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class InternoComponent implements OnInit {
   pesquisar(): void {
     console.log('emitindo evento');
     this.emitter.get('evento.atualizarLista')
-                .emit(this.titulo);
+      .emit(this.titulo);
   }
 
 }

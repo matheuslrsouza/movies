@@ -1,0 +1,24 @@
+<div class="row">
+
+  <div class="col-md-3">
+
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{ filme.Poster }}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ filme.Title }}</h5>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-9">
+    <p>{{filme.Title}}</p>
+  </div>
+
+</div>
+
+
+<div class="div-fab">
+  <a class="fab fab-btn-large" [routerLink]="['/interno/filmes']">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+  </a>
+</div>

@@ -1,3 +1,21 @@
-<p>
-  Filmes
-</p>
+<div class="row">
+
+  <div class="col-md-3" *ngFor="let filme of filmes">
+    <div class="card">
+      <img class="card-img-top" [src]="filme.Poster">
+      <div class="card-body">
+        <h5 class="card-title">{{ filme.Title }}</h5>
+        <a href="javascript:void(0);" class="card-link" [routerLink]="['/interno/detalhar', filme.imdbID]">
+          Detalhes
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="div-fab">
+  <a class="fab fab-btn-large" (click)="getFilmesDaNuvem()">
+    <i class="fa fa-refresh" aria-hidden="true"></i>
+  </a>
+</div>
