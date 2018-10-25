@@ -42,7 +42,7 @@
           Olá, {{ token.usuario.usuario }}
         </span>
         <div class="dropdown-menu" aria-labelledby="ddlUsuario">
-          <button class="dropdown-item click" type="button">
+          <button class="dropdown-item click" type="button" [routerLink]="['/externo/registro', token.usuario.id]">
             <i class="fa fa-pencil fa-fw"></i>
             &nbsp;Perfil
           </button>

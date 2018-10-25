@@ -117,7 +117,7 @@
 
 <div class="row d-flex justify-content-center">
   <div class="col-md-7">
-    <app-comentario [idFilme]="idFilme"></app-comentario>
+    <app-comentario *ngIf="filme.imdbID" [idFilme]="filme.imdbID"></app-comentario>
   </div>
 </div>
 

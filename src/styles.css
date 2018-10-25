@@ -1,9 +1,19 @@
 .invalid-feedback p {
     margin-bottom: -2px !important;
 }
+
+.invalid-feedback {
+    display: inline !important;
+}
   
 .invalid-feedback p:before {
-    content: "• "
+    content: " • ";
+}
+
+.invertido p {
+    background-color: #ff000073 !important;
+    color: #ffffff !important;
+    border-radius: 7px !important;
 }
 
 .click {
@@ -42,5 +52,9 @@
     height: 60px;
     line-height: 60px;
     color: #FFF !important;
+}
+
+.red {
+    color: rgb(255, 0, 0);
 }
     

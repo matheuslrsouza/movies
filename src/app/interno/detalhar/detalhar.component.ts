@@ -11,7 +11,6 @@ import { Filme } from '../../model/filme.model';
 export class DetalharComponent implements OnInit {
 
   public filme: Filme;
-  public idFilme: string;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -20,13 +19,12 @@ export class DetalharComponent implements OnInit {
   ngOnInit() {
     this.filme = new Filme();
     this.route.params.subscribe(params => {
-      this.idFilme = params['imdbId'];
-      this.getFilme();
+      this.getFilme(params['imdbId']);
     });
   }
 
-  private getFilme(): void {
-    this.service.getFilmePorId(this.idFilme).subscribe(filme => {
+  private getFilme(id: string): void {
+    this.service.getFilmePorId(id).subscribe(filme => {
       this.filme = filme;
     });
   }

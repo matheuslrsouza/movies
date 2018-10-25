@@ -22,6 +22,14 @@ export class UsuarioService {
     return this.http.post<Token>(`${this.usuario_api_url}/`, usuario);
   }
 
+  public alterar(id: string, usuario: Usuario): Observable<Token> {
+    return this.http.put<Token>(`${this.usuario_api_url}/${id}`, usuario);
+  }
+
+  public buscarPorId(id: string): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.usuario_api_url}/${id}`);
+  }
+
   public setToken(token: Token): void {
     localStorage.setItem('token', JSON.stringify(token));
   }

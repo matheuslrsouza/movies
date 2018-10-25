@@ -4,6 +4,7 @@ import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.co
 
 export const routes_externo: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'registro', component: CadastroUsuarioComponent}
+  {path: 'registro', component: CadastroUsuarioComponent},
+  {path: 'registro/:id', component: CadastroUsuarioComponent}
 ];
 
