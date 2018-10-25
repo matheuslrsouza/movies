@@ -26,7 +26,8 @@ export class InternoComponent implements OnInit {
   }
 
   pesquisar(): void {
-      this.emitter.get('evento.atualizarLista').emit(this.titulo);
+    this.router.navigate(['/interno/filmes']);
+    this.emitter.get('evento.atualizarLista').emit(this.titulo);
   }
 
 }

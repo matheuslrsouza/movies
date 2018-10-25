@@ -18,6 +18,11 @@ export class FilmeListagemComponent implements OnInit {
 
   ngOnInit() {
     this.filmes = new Array<Filme>();
+
+    if (!this.titulo) {
+      this.onAtualizarLista();
+    }
+
     this.emitter.get('evento.atualizarLista').subscribe(titulo => {
       this.titulo = titulo;
       this.onAtualizarLista();
